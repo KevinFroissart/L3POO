@@ -4,17 +4,21 @@ public class Somme {
 
 	public static void main(String[] args) {
 		
-		float somme;
+		double somme;
 		int nb;
-		nb = Integer.parseInt(args[0]);
 		
-		if(args.length > 0)
+		try {
+			nb = Integer.parseInt(args[0]);
 			somme = nb;
-		else
+			for(int i = nb; i < nb + 11; i++) {
+				somme+=1/i;
+			}
+		} catch(Exception e) {
+			nb = 0;
 			somme = 0;
-		
-		for(int i = nb; i < nb + 11; i++) {
-			somme+=1/i;
+			for(int i = nb; i < nb + 11; i++) {
+				somme+=i;
+			}
 		}
 		
 		System.out.println(somme);	
