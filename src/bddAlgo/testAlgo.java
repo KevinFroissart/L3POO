@@ -16,7 +16,6 @@ public class testAlgo {
 		DF.add(new DF("EG", "ABD"));
 		DF.add(new DF("FG", "AE"));
 		DF.add(new DF("AB", "B"));
-		DF.add(new DF("A", "E"));
 		
 		ArrayList<DF> DF2 = new ArrayList<DF>();
 		DF2.add(new DF("A", "B"));
@@ -41,13 +40,13 @@ public class testAlgo {
 		Schema R = new Schema("A");
 
 				
-		Algo1 a1 = new Algo1(DF, R);
-		System.out.println(a1.calcul());
+		//Algo1 a1 = new Algo1(DF, R);
+		//System.out.println(a1.calcul(false));
 		
 		
-		/*Algo2 a2 = new Algo2(DF);
+		Algo2 a2 = new Algo2(DF);
 		a2.calcul();
-		System.out.println(a2.toString());*/
+		System.out.println(a2.toString());
 	}
 	
 }

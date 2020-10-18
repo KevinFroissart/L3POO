@@ -8,11 +8,11 @@ public class Algo1 {
 	private Schema closure;
 	
 	public Algo1(ArrayList<DF> unused, Schema closure) {
-		this.unused = unused;
-		this.closure = closure;
+		this.unused = new ArrayList<DF>(unused);
+		this.closure = new Schema(closure.toString());
 	}
 	
-	public Schema calcul() {
+	public Schema calcul(boolean print) {
 		
 		Schema closure2 = new Schema("");
 				
@@ -20,9 +20,8 @@ public class Algo1 {
 			closure2 = new Schema(closure.toString());
 			for(int i = 0; i < unused.size(); i++) {
 				if(closure.ajoute(unused.get(i))) {
-					System.out.print(closure + " =: " + unused.get(i) + " - ");
+					if(print) System.out.println(closure + " =: " + unused.get(i) + " - " + unused);
 					unused.remove(unused.get(i--));
-					System.out.println(unused);
 				}	
 			}	
 		}
