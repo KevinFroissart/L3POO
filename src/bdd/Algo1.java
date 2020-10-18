@@ -27,7 +27,7 @@ public class Algo1 {
 					}
 					else return closure;
 				} else
-				if(closure.contientAjoute(unused.get(i).getGauche())) {
+				if(closure.ajoute(unused.get(i).getGauche())) {
 					unused.remove(unused.get(i));
 					i--;
 				}

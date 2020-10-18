@@ -1,5 +1,7 @@
 package bdd;
 
+import java.util.Arrays;
+
 public class Schema {
 
 	String R;
@@ -8,30 +10,15 @@ public class Schema {
 		this.R = schema;
 	}
 	
-	public boolean contientAjoute(String autre) {
+	public boolean ajoute(String autre) {
 		boolean res = true;
 		for(int i = 0; i < autre.length(); i++) {
 			if(this.R.indexOf(autre.charAt(i)) == -1) {
-				setR(R+autre.charAt(i));
+				setR(sortString(R+autre.charAt(i)));
 				res = false;
 			}
 		}
 		return res;
-	}
-	
-	public boolean contient(String autre) {
-		for(int i = 0; i < autre.length(); i++) {
-			if(this.R.indexOf(autre.charAt(i)) == -1) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	
-	public void ajoute(String nv) {
-		System.out.println(R + " nv : " + nv);
-		if(!this.contient(nv)) setR(R+nv);
 	}
 	
 	public String getR() {
@@ -45,5 +32,11 @@ public class Schema {
 	@Override
 	public String toString() {
 		return R;
-	}	
+	}
+	
+	public static String sortString(String inputString) { 
+	    char tempArray[] = inputString.toCharArray();   
+	    Arrays.sort(tempArray); 
+	    return new String(tempArray); 
+	} 
 }
