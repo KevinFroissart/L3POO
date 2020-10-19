@@ -28,6 +28,26 @@ public class Algo {
 
 	}
 	
+	public List<DF> reductionDesParties(List<DF> ensembleDF){
+		List<DF> reduit = new ArrayList<DF>();
+		
+		for(DF df : ensembleDF) {
+			String w = df.getAttributsGauche();
+			for(int i = 0; i < w.length(); i++) {
+				//reduit.add
+			}
+		}
+		
+		for(DF df : ensembleDF) {
+			String w = df.getAttributsDroite();
+			for(int i = 0; i < w.length(); i++) {
+				//reduit.add
+			}
+		}
+		
+		return reduit;
+	}
+	
 	public static List<DF> couvertureMinimale(List<DF> ensembleDF){
 		List<DF> result = new ArrayList<DF>();
 		
@@ -35,14 +55,16 @@ public class Algo {
 			String X = d.getAttributsGauche();
 			result.add(new DF(X, fermetureAttribut(ensembleDF, X)));
 		}
+		//on fait une liste de fermeture en fonction de notre ensemble
 		
-		for(DF d : result){
+		for(DF d : result){ // Pour chaque DF
 			List<DF> singletonDF = new ArrayList<DF>();
-			singletonDF.add(d);
+			singletonDF.add(d); //J'ajoute la DF à une autre liste singletonDF
 			
-			List<DF> diff = difference(result, singletonDF);
+			List<DF> diff = difference(result, singletonDF); //Une nouvelle liste diff qui compare mon ensemble de fermeture et mon singleton
 			
-			if(infere(diff, d)) result = diff;
+			
+			if(infere(diff, d)) result = diff; //Si notre diff est juste, on la copie sur *result*?
 		}
 		return result;
 	}
