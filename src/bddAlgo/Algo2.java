@@ -14,18 +14,19 @@ public class Algo2 {
 	
 	public ArrayList<DF> calcul() {
 		G.clear();
-		for(int i = 0; i < df.size(); i++) {
-			Algo1 a1 = new Algo1(df, new Schema(df.get(i).getGauche())); //on calcul la fermeture de la df
-			G.add(new DF(df.get(i).getGauche(), a1.calcul(false).toString())); //on créer une nouvelle DF avec sa fermeture à droite X->X+
-		}
 		
-		for(int i = 0; i < G.size(); i++) {
+		for(DF d : df) {
+			Algo1 a1 = new Algo1(df, new Schema(d.getAttributsGauche()));
+			G.add(new DF(d.getAttributsGauche(), a1.calcul(false).toString()));
+		}	
+		
+		/*for(int i = 0; i < G.size(); i++) {
 			for(int j = 0; j < G.size(); j++) {
-				if(G.get(i).getDroite().equals(G.get(j).getDroite()) && j != i) {
+				if(G.get(i).getDroite().equals(G.get(j).getDroite()) && j != i && G.get(i).getDroite() != "ABCDEF") {
 					G.remove(i);
 				}
 			}
-		}
+		}*/
 		return G;
 	}
 

@@ -11,8 +11,8 @@ public class Schema {
 	}
 	
 	public boolean ajoute(DF autre) {
-		String autreG = autre.getGauche();
-		String autreD = autre.getDroite();
+		String autreG = autre.getAttributsGauche();
+		String autreD = autre.getAttributsDroite();
 				
 		for(int i = 0; i < autreG.length(); i++) {
 			if(this.R.indexOf(autreG.charAt(i)) == -1) return false;

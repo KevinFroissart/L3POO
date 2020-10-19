@@ -16,6 +16,7 @@ public class testAlgo {
 		DF.add(new DF("EG", "ABD"));
 		DF.add(new DF("FG", "AE"));
 		DF.add(new DF("AB", "B"));
+		DF.add(new DF("A", "E"));
 		
 		ArrayList<DF> DF2 = new ArrayList<DF>();
 		DF2.add(new DF("A", "B"));
@@ -36,10 +37,23 @@ public class testAlgo {
 		DF3.add(new DF("G", "C"));
 		
 
+		ArrayList<DF> DF4 = new ArrayList<DF>();
+		DF4.add(new DF("AB", "C"));
+		DF4.add(new DF("C", "A"));
+		DF4.add(new DF("BC", "D"));
+		DF4.add(new DF("ACD", "B"));
+		DF4.add(new DF("D", "EF"));
+		DF4.add(new DF("ABE", "C"));
+		DF4.add(new DF("CF", "BD"));
+		DF4.add(new DF("CE", "AF"));
 				
-		Schema R = new Schema("A");
+		Schema R = new Schema("ABCDEFG");
 
-				
+		
+		/*for(DF df : DF ) {
+			System.out.println(df.toString());
+		}*/
+		
 		//Algo1 a1 = new Algo1(DF, R);
 		//System.out.println(a1.calcul(false));
 		

@@ -2,24 +2,27 @@ package bddAlgo;
 
 public class DF {
 
-	private String gauche;
-	private String droite;
-	
-	public DF(String gauche, String droite) {
-		this.gauche = gauche;
-		this.droite = droite;
-	}
+	private String attributsGauche;
+    private String attributsDroite;
 
-	public String getGauche() {
-		return gauche;
-	}
+    public DF(String g, String d){
+        attributsGauche = g;
+        attributsDroite = d;
+    }
 
-	public String getDroite() {
-		return droite;
-	}
+    public String getAttributsGauche()
+    {
+        return attributsGauche;
+    }
+
+    public String getAttributsDroite()
+    {
+        return attributsDroite;
+    }
 
 	@Override
 	public String toString() {
-		return gauche + "->" + droite;
+		return attributsGauche + "->" + attributsDroite;
 	}
+
 }
