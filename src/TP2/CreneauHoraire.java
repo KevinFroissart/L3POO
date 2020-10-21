@@ -2,7 +2,7 @@ package TP2;
 
 import java.util.Scanner;
 
-public class CreneauHoraire {
+public class CreneauHoraire implements Cloneable {
 
 	int jour, heure, minute, duree;
 	
@@ -113,6 +113,18 @@ public class CreneauHoraire {
                        + "Veuillez refaire votre saisie : ");
         return saisirNbEntier(sc);
     }
+	
+	@Override
+	protected Object clone() {
+		CreneauHoraire clone = null;
+		
+		try  {
+			clone = (CreneauHoraire) super.clone();
+		} catch(CloneNotSupportedException e) {
+			e.printStackTrace(System.err);
+		}
+		return clone;
+	}
 	
 	@Override
     public String toString() {

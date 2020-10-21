@@ -51,6 +51,8 @@ public class Algo {
 	public static List<DF> couvertureMinimale(List<DF> ensembleDF){
 		List<DF> result = new ArrayList<DF>();
 		
+		List<DF> finale = new ArrayList<DF>();
+		
 		for(DF d : ensembleDF){
 			String X = d.getAttributsGauche();
 			result.add(new DF(X, fermetureAttribut(ensembleDF, X)));
@@ -64,9 +66,9 @@ public class Algo {
 			List<DF> diff = difference(result, singletonDF); //Une nouvelle liste diff qui compare mon ensemble de fermeture et mon singleton
 			
 			
-			if(infere(diff, d)) result = diff; //Si notre diff est juste, on la copie sur *result*?
+			if(infere(diff, d)) finale.add(diff.get(0)); //Si notre diff est juste, on la copie sur *result*?
 		}
-		return result;
+		return finale;
 	}
 	  
 	public static String fermetureAttribut(List<DF> ensembleDF, String ensembleAttributs){
