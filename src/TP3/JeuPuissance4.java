@@ -2,10 +2,10 @@ package TP3;
 
 import TP3.Joueur;
 
-public class JeuDeMorpion extends Jeu {
+public class JeuPuissance4 extends Jeu {
 
-	public JeuDeMorpion(Joueur joueur1, Joueur joueur2) {
-		super(joueur1, joueur2, new PlateauMorpion());
+	public JeuPuissance4(Joueur joueur1, Joueur joueur2) {
+		super(joueur1, joueur2, new PlateauPuissance4());
 	}
 
 	@Override
@@ -13,7 +13,7 @@ public class JeuDeMorpion extends Jeu {
 		final int longueur = plateau.getLongueur();
 		final int largeur = plateau.getLargeur();
 		boolean colAlignee, ligAlignee;
-
+		
 		for (int i = 0; i < longueur; ++i) {
 			colAlignee = plateau.getEtatIdCase(i, 0) != 0;
 			ligAlignee = plateau.getEtatIdCase(0, i) != 0;
@@ -26,7 +26,7 @@ public class JeuDeMorpion extends Jeu {
 			}
 
 			if (colAlignee || ligAlignee) return true;
-			
+	
 		}
 
 		boolean diag1Alignee = plateau.getEtatIdCase(0, 0) != 0;
@@ -39,5 +39,4 @@ public class JeuDeMorpion extends Jeu {
 		}
 		return diag1Alignee || diag2Alignee;
 	}
-
 }

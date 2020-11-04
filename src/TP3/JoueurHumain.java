@@ -1,38 +1,57 @@
+/*
+ * JoueurHumain.java                                               23/10/2019
+ */
 package TP3;
 
 import java.util.Scanner;
+import TP3.Coup;
+import TP3.Plateau;
 
-public class JoueurHumain extends Joueur{
+public class JoueurHumain extends Joueur {
+	private Scanner entreeJoueur;
 
-	public JoueurHumain(int _id) {
-		super(_id);
+	public JoueurHumain(int id) {
+		super(id);
+		entreeJoueur = new Scanner(System.in);
 	}
+
+	private int saisirCoord() {
+		String entreeUtil;
+		while (!entreeJoueur.hasNextInt()) {
+			entreeUtil = entreeJoueur.next();
+			System.out.print(entreeUtil + " n'est pas un nombre entier. "
+					+ System.lineSeparator()
+					+ "Veuillez refaire votre saisie : ");
+		}
+
+		return entreeJoueur.nextInt();
+	}
+
+	private Coup saisirCoup() {
+		int x, y;
+		Coup coupJoueur;
+
+		System.out.print("x : ");
+		x = saisirCoord();
+		System.out.print("y : ");
+		y = saisirCoord();
+		coupJoueur = new Coup(x, y);
+
+		return coupJoueur;
+	}
+
 
 	@Override
-	public Coup getCoup(Plateau _etatJeu) {
-		boolean joue = false;
-		Coup coup = null;
-		int x;
-		int y;
-		while(!joue) {
-			do {
-				Scanner scanner = new Scanner(System.in);
-				System.out.print("Entrez x entre 0 et " + _etatJeu.largeur + " : ");
-				x = scanner.nextInt();
-				System.out.println();
-				System.out.print("Entrez y entre 0 et " + _etatJeu.longueur + " : ");
-				y = scanner.nextInt();
-				System.out.println();
-			} while(x < _etatJeu.largeur && x >= 0 && y < _etatJeu.longueur && y >= 0);
-			
-			coup = new Coup(x, y);
-			if(_etatJeu.etatIDPlateau[coup.getX()][coup.getY()] == 0) {
-				_etatJeu.appliquerCoup(coup, getId());
-				joue = true;
-			}
+	public Coup getCoup(Plateau etatJeu) {
+		Coup coupJoueur = saisirCoup();
+
+		while(!etatJeu.coupPossible(coupJoueur)) {
+			System.out.println("Coordonnées incorrectes. "
+					+ System.lineSeparator()
+					+ "Veuillez refaire votre saisie : ");
+			coupJoueur = saisirCoup();
 		}
-		return coup;
+
+		return coupJoueur;
 	}
-	
-	
 }
